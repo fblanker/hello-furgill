@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101214" />
+  <title>Fit10 — 10 km & Afvallen</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">FIT10</div>
+      <h1 id="greeting">Jouw plan voor vandaag</h1>
+    </div>
+    <button id="themeBtn" class="icon-btn" aria-label="Thema wisselen">◐</button>
+  </header>
+
+  <main class="app-shell">
+    <nav class="tabs" aria-label="Hoofdnavigatie">
+      <button class="tab active" data-view="today">Vandaag</button>
+      <button class="tab" data-view="training">Training</button>
+      <button class="tab" data-view="meals">Eten</button>
+      <button class="tab" data-view="progress">Progressie</button>
+      <button class="tab" data-view="settings">Instellingen</button>
+    </nav>
+
+    <section id="today" class="view active">
+      <div class="hero card">
+        <div>
+          <div class="date-nav"><button id="prevDay" class="icon-btn" aria-label="Vorige dag">‹</button><span class="pill" id="weekPill">Week 1</span><button id="nextDay" class="icon-btn" aria-label="Volgende dag">›</button></div>
+          <h2 id="todayTitle">Vandaag</h2>
+          <p id="todaySubtitle" class="muted"></p>
+        </div>
+        <div class="score-wrap">
+          <div class="score" id="dayScore">0%</div>
+          <span class="muted tiny">dag voltooid</span>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <div class="card-head">
+            <h3>Training</h3>
+            <button class="link-btn" data-jump="training">Open schema</button>
+          </div>
+          <div id="todayWorkout"></div>
+          <label class="checkline"><input type="checkbox" id="workoutDone" /> Training afgerond</label>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><h3>Dagdoelen</h3></div>
+          <div class="goal-row"><span>Stappen</span><strong id="stepsGoalText">8.000</strong></div>
+          <input id="stepsInput" type="number" min="0" step="100" placeholder="Bijv. 6500" />
+          <div class="goal-row"><span>Water</span><strong id="waterGoalText">2,0 L</strong></div>
+          <input id="waterInput" type="number" min="0" step="0.25" placeholder="Bijv. 1.5" />
+        </article>
+      </div>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>Maaltijden vandaag</h3>
+          <button class="link-btn" data-jump="meals">Kiezen</button>
+        </div>
+        <div class="meal-summary" id="mealSummary"></div>
+        <div class="meal-total"><span>Geschat maaltijdtotaal</span><strong id="mealTotal">0 kcal</strong></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h3>Snelle notitie</h3></div>
+        <textarea id="dailyNote" rows="4" placeholder="Hoe voelde de training? Honger? Energie? Slaap?"></textarea>
+      </article>
+    </section>
+
+    <section id="training" class="view">
+      <div class="section-title">
+        <div><span class="eyebrow">14 WEKEN</span><h2>Naar 10 km onafgebroken</h2></div>
+        <select id="weekSelect" aria-label="Week kiezen"></select>
+      </div>
+      <div id="weekTraining" class="training-list"></div>
+      <article class="card info-card">
+        <h3>Tempo-indeling</h3>
+        <p><strong>Easy:</strong> RPE 3–4/10, je kunt korte zinnen praten.</p>
+        <p><strong>Interval:</strong> RPE 7–8/10 tijdens de snelle blokken.</p>
+        <p><strong>Lange duurloop:</strong> rustig genoeg om de afstand af te maken; tempo is secundair.</p>
+      </article>
+    </section>
+
+    <section id="meals" class="view">
+      <div class="section-title">
+        <div><span class="eyebrow">VOEDING</span><h2>Kies wat je vandaag eet</h2></div>
+        <button id="randomizeMeals" class="primary small">Verras mij</button>
+      </div>
+      <div id="mealPicker"></div>
+      <article class="card">
+        <div class="card-head"><h3>Extra snacks</h3></div>
+        <div class="chip-row" id="snackChips"></div>
+      </article>
+    </section>
+
+    <section id="progress" class="view">
+      <div class="section-title">
+        <div><span class="eyebrow">PROGRESSIE</span><h2>Gewicht & prestaties</h2></div>
+      </div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Nieuwe meting</h3>
+          <label>Gewicht (kg)<input id="weightInput" type="number" step="0.1" min="30" max="300" /></label>
+          <label>Langste run (km)<input id="longestRunInput" type="number" step="0.1" min="0" max="100" /></label>
+          <label>10 km tijd (optioneel, min)<input id="tenKTimeInput" type="number" step="0.1" min="20" max="180" /></label>
+          <button id="saveProgress" class="primary">Opslaan</button>
+        </article>
+        <article class="card stats-card" id="progressStats"></article>
+      </div>
+      <article class="card">
+        <h3>Historie</h3>
+        <div id="progressHistory" class="history"></div>
+      </article>
+    </section>
+
+    <section id="settings" class="view">
+      <div class="section-title"><div><span class="eyebrow">INSTELLINGEN</span><h2>Maak het persoonlijk</h2></div></div>
+      <article class="card settings-form">
+        <label>Naam<input id="nameSetting" type="text" placeholder="Jouw naam" /></label>
+        <label>Startdatum schema<input id="startDateSetting" type="date" /></label>
+        <label>Stappendoel<input id="stepsGoalSetting" type="number" min="1000" step="500" /></label>
+        <label>Waterdoel (liter)<input id="waterGoalSetting" type="number" min="0.5" max="6" step="0.25" /></label>
+        <label>Doelgewicht (optioneel)<input id="targetWeightSetting" type="number" min="30" max="300" step="0.1" /></label>
+        <button id="saveSettings" class="primary">Instellingen opslaan</button>
+      </article>
+      <article class="card">
+        <h3>Back-up</h3>
+        <p class="muted">Je gegevens staan alleen op dit apparaat. Exporteer regelmatig een back-up.</p>
+        <div class="button-row">
+          <button id="exportBtn" class="secondary">Exporteer gegevens</button>
+          <label class="secondary file-label">Importeer<input id="importInput" type="file" accept="application/json" hidden /></label>
+          <button id="resetBtn" class="danger">Alles wissen</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">Fit10 • lokale opslag • geen account nodig</footer>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
