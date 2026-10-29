@@ -1,0 +1,9 @@
+{
+  "name": "Fit10 — 10 km & Afvallen",
+  "short_name": "Fit10",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f4",
+  "theme_color": "#101214",
+  "description": "Dagplanning voor 10 km training, maaltijden en gewichtsprogressie."
+}
