@@ -2,6 +2,8 @@
 
 Fit10 is een mobiele webapp voor een 14-weken traject naar 10 km hardlopen en gewichtsverlies.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/fblanker/hello-furgill)
+
 ## Functies
 - Dagelijks trainingsschema
 - 14-weken 10 km hardloopschema
