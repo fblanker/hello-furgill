@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: fit10
+    runtime: static
+    buildCommand: echo "Fit10 static site - no build required"
+    staticPublishPath: .
