@@ -58,97 +58,52 @@
       </section>
 
       <div class="metric-grid">
-        <article class="metric-card metric-run">
-          <span class="metric-icon">↗</span>
-          <div><small>Training</small><strong id="workoutMetric">Gepland</strong></div>
-        </article>
-        <article class="metric-card metric-steps">
-          <span class="metric-icon">◉</span>
-          <div><small>Stappen</small><strong id="stepsMetric">0 / 8.000</strong></div>
-        </article>
-        <article class="metric-card metric-water">
-          <span class="metric-icon">◇</span>
-          <div><small>Water</small><strong id="waterMetric">0 / 2 L</strong></div>
-        </article>
-        <article class="metric-card metric-food">
-          <span class="metric-icon">◒</span>
-          <div><small>Voeding</small><strong id="calorieMetric">0 kcal</strong></div>
-        </article>
+        <article class="metric-card metric-run"><span class="metric-icon">↗</span><div><small>Training</small><strong id="workoutMetric">Gepland</strong></div></article>
+        <article class="metric-card metric-steps"><span class="metric-icon">◉</span><div><small>Stappen</small><strong id="stepsMetric">0 / 8.000</strong></div></article>
+        <article class="metric-card metric-water"><span class="metric-icon">◇</span><div><small>Water</small><strong id="waterMetric">0 / 2 L</strong></div></article>
+        <article class="metric-card metric-food"><span class="metric-icon">◒</span><div><small>Voeding</small><strong id="calorieMetric">0 kcal</strong></div></article>
       </div>
 
       <div class="dashboard-grid">
         <article class="card workout-focus">
-          <div class="card-head">
-            <div>
-              <span class="section-label">VANDAAG TRAINEN</span>
-              <h3>Jouw workout</h3>
-            </div>
-            <button class="link-btn" data-jump="training">Volledig schema →</button>
-          </div>
+          <div class="card-head"><div><span class="section-label">VANDAAG TRAINEN</span><h3>Jouw workout</h3></div><button class="link-btn" data-jump="training">Volledig schema →</button></div>
           <div id="todayWorkout" class="today-workout"></div>
           <label class="completion-toggle"><input type="checkbox" id="workoutDone" /><span class="toggle-box">✓</span><span>Training afgerond</span></label>
         </article>
 
         <article class="card goals-card">
-          <div class="card-head">
-            <div><span class="section-label">DAGDOELEN</span><h3>Bewegen & hydrateren</h3></div>
-          </div>
-          <div class="goal-block">
-            <div class="goal-title"><span>Stappen</span><strong id="stepsGoalText">8.000</strong></div>
-            <div class="goal-track"><span id="stepsBar"></span></div>
-            <input id="stepsInput" type="number" min="0" step="100" inputmode="numeric" placeholder="Bijv. 6500" />
-          </div>
-          <div class="goal-block">
-            <div class="goal-title"><span>Water</span><strong id="waterGoalText">2,0 L</strong></div>
-            <div class="goal-track water-track"><span id="waterBar"></span></div>
-            <input id="waterInput" type="number" min="0" step="0.25" inputmode="decimal" placeholder="Bijv. 1.5" />
-          </div>
+          <div class="card-head"><div><span class="section-label">DAGDOELEN</span><h3>Bewegen & hydrateren</h3></div></div>
+          <div class="goal-block"><div class="goal-title"><span>Stappen</span><strong id="stepsGoalText">8.000</strong></div><div class="goal-track"><span id="stepsBar"></span></div><input id="stepsInput" type="number" min="0" step="100" inputmode="numeric" placeholder="Bijv. 6500" /></div>
+          <div class="goal-block"><div class="goal-title"><span>Water</span><strong id="waterGoalText">2,0 L</strong></div><div class="goal-track water-track"><span id="waterBar"></span></div><input id="waterInput" type="number" min="0" step="0.25" inputmode="decimal" placeholder="Bijv. 1.5" /></div>
         </article>
       </div>
 
       <article class="card meals-today-card">
-        <div class="card-head">
-          <div><span class="section-label">VANDAAG ETEN</span><h3>Jouw maaltijden</h3></div>
-          <button class="link-btn" data-jump="meals">Wijzigen →</button>
-        </div>
+        <div class="card-head"><div><span class="section-label">VANDAAG ETEN</span><h3>Jouw maaltijden</h3></div><button class="link-btn" data-jump="meals">Wijzigen →</button></div>
         <div class="meal-summary" id="mealSummary"></div>
         <div class="meal-total"><span>Geschat maaltijdtotaal</span><strong id="mealTotal">0 kcal</strong></div>
       </article>
 
-      <article class="card note-card">
-        <div class="card-head"><div><span class="section-label">CHECK-IN</span><h3>Hoe gaat het vandaag?</h3></div></div>
-        <textarea id="dailyNote" rows="3" placeholder="Energie, slaap, honger, training…"></textarea>
-      </article>
+      <article class="card note-card"><div class="card-head"><div><span class="section-label">CHECK-IN</span><h3>Hoe gaat het vandaag?</h3></div></div><textarea id="dailyNote" rows="3" placeholder="Energie, slaap, honger, training…"></textarea></article>
     </section>
 
     <section id="training" class="view">
-      <div class="section-title">
-        <div><span class="section-label">14 WEKEN • 3 RUNS PER WEEK</span><h2>Naar 10 km, met tempo.</h2><p>Afstand opbouwen zonder snelheid uit het oog te verliezen.</p></div>
-        <select id="weekSelect" aria-label="Week kiezen"></select>
-      </div>
+      <div class="section-title"><div><span class="section-label">14 WEKEN • 3 RUNS PER WEEK</span><h2>Naar 10 km, met tempo.</h2><p>Afstand opbouwen zonder snelheid uit het oog te verliezen.</p></div><select id="weekSelect" aria-label="Week kiezen"></select></div>
       <div id="weekTraining" class="training-list"></div>
-      <article class="card info-card">
-        <div class="info-icon">i</div>
-        <div><h3>Train slim, niet altijd hard</h3><p><strong>Easy:</strong> RPE 3–4/10. <strong>Interval:</strong> RPE 7–8/10. <strong>Lange duurloop:</strong> comfortabel genoeg om sterk te eindigen.</p></div>
-      </article>
+      <article class="card info-card"><div class="info-icon">i</div><div><h3>Train slim, niet altijd hard</h3><p><strong>Easy:</strong> RPE 3–4/10. <strong>Interval:</strong> RPE 7–8/10. <strong>Lange duurloop:</strong> comfortabel genoeg om sterk te eindigen.</p></div></article>
     </section>
 
     <section id="meals" class="view">
-      <div class="section-title">
-        <div><span class="section-label">VOEDING • VEEL VOLUME</span><h2>Lekker eten en toch afvallen.</h2><p>Kies eenvoudige, eiwitrijke maaltijden die goed vullen.</p></div>
-        <button id="randomizeMeals" class="primary small">✦ Verras mij</button>
-      </div>
+      <div class="section-title"><div><span class="section-label">VOEDING • VEEL VOLUME</span><h2>Lekker eten en toch afvallen.</h2><p>Kies eenvoudige, eiwitrijke maaltijden die goed vullen.</p></div><button id="randomizeMeals" class="primary small">✦ Verras mij</button></div>
       <div id="mealPicker"></div>
-      <article class="card snack-card">
-        <div class="card-head"><div><span class="section-label">EXTRA</span><h3>Snacks</h3></div></div>
-        <div class="chip-row" id="snackChips"></div>
-      </article>
+      <article class="card snack-card"><div class="card-head"><div><span class="section-label">EXTRA</span><h3>Snacks</h3></div></div><div class="chip-row" id="snackChips"></div></article>
     </section>
 
     <section id="progress" class="view">
       <div class="section-title">
-        <div><span class="section-label">PROGRESSIE • NIET PERFECTIE</span><h2>Zie jezelf sterker worden.</h2><p>Volg gewicht én prestaties. Beide tellen.</p></div>
+        <div><span class="section-label">PROGRESSIE • NIET PERFECTIE</span><h2>Zie je trend. Ken je koers.</h2><p>Volg stappen, gewicht, BMI en loopprestaties. De prognose wordt alleen getoond als je metingen een bruikbare trend vormen.</p></div>
       </div>
+
       <div class="grid two progress-grid">
         <article class="card measurement-card">
           <span class="section-label">NIEUWE METING</span><h3>Log je voortgang</h3>
@@ -159,8 +114,27 @@
         </article>
         <article class="card stats-card" id="progressStats"></article>
       </div>
+
+      <article class="card forecast-card" id="goalForecast"></article>
+
+      <div class="charts-grid">
+        <article class="card chart-card">
+          <div class="chart-head"><div><span class="section-label">DAGELIJKSE BEWEGING</span><h3>Stappen</h3></div><span class="chart-badge" id="stepsChartBadge">Doel</span></div>
+          <div id="stepsChart" class="chart-shell" role="img" aria-label="Grafiek van dagelijkse stappen"></div>
+        </article>
+        <article class="card chart-card">
+          <div class="chart-head"><div><span class="section-label">LICHAAMSGEWICHT</span><h3>Gewicht</h3></div><span class="chart-badge" id="weightChartBadge">kg</span></div>
+          <div id="weightChart" class="chart-shell" role="img" aria-label="Grafiek van gewicht"></div>
+        </article>
+        <article class="card chart-card chart-wide">
+          <div class="chart-head"><div><span class="section-label">BEREKEND UIT LENGTE & GEWICHT</span><h3>BMI</h3></div><span class="chart-badge" id="bmiChartBadge">BMI</span></div>
+          <div id="bmiChart" class="chart-shell" role="img" aria-label="Grafiek van BMI"></div>
+        </article>
+      </div>
+
       <article class="card history-card">
         <div class="card-head"><div><span class="section-label">HISTORIE</span><h3>Jouw metingen</h3></div></div>
+        <div class="history-head"><span>Datum</span><span>Gewicht</span><span>BMI</span><span>Run</span><span>10 km</span></div>
         <div id="progressHistory" class="history"></div>
       </article>
     </section>
@@ -170,18 +144,15 @@
       <article class="card settings-form">
         <label>Naam<input id="nameSetting" type="text" placeholder="Jouw naam" /></label>
         <label>Startdatum schema<input id="startDateSetting" type="date" /></label>
+        <label>Lengte (cm)<input id="heightSetting" type="number" min="100" max="230" step="1" inputmode="numeric" placeholder="Bijv. 182" /></label>
         <label>Stappendoel<input id="stepsGoalSetting" type="number" min="1000" step="500" /></label>
         <label>Waterdoel (liter)<input id="waterGoalSetting" type="number" min="0.5" max="6" step="0.25" /></label>
-        <label>Doelgewicht (optioneel)<input id="targetWeightSetting" type="number" min="30" max="300" step="0.1" /></label>
+        <label>Doelgewicht (kg)<input id="targetWeightSetting" type="number" min="30" max="300" step="0.1" /></label>
         <button id="saveSettings" class="primary">Instellingen opslaan</button>
       </article>
       <article class="card backup-card">
         <div><span class="section-label">BACK-UP</span><h3>Bewaar je voortgang</h3><p class="muted">Exporteer af en toe een back-up zodat je gegevens niet verloren gaan.</p></div>
-        <div class="button-row">
-          <button id="exportBtn" class="secondary">Exporteer</button>
-          <label class="secondary file-label">Importeer<input id="importInput" type="file" accept="application/json" hidden /></label>
-          <button id="resetBtn" class="danger">Alles wissen</button>
-        </div>
+        <div class="button-row"><button id="exportBtn" class="secondary">Exporteer</button><label class="secondary file-label">Importeer<input id="importInput" type="file" accept="application/json" hidden /></label><button id="resetBtn" class="danger">Alles wissen</button></div>
       </article>
     </section>
   </main>
